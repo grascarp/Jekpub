@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#-*-coding:utf8-*-
+#-*-coding:utf-8-*-
 
 __author__ = 'Grascarp'
 
@@ -149,9 +149,9 @@ class MyFrame(wx.Frame):
         psg += 'layout:     %s\n' % self.layout
         psg += 'title:      "%s"\n' % self.ctrl_title.GetValue().strip()
         psg += 'subtitle:   "%s"\n' % self.ctrl_subtitle.GetValue().strip()
-        psg += 'date:       %s %s\n' % (ymd, hms)
+        psg += 'date:       %s %s +0800\n' % (ymd, hms)
         psg += 'author:     "%s"\n' % self.author
-        psg += 'header-img: "%s"\n' % self.ctrl_img.GetValue().strip()
+        psg += 'header-img: "img/%s"\n' % self.ctrl_img.GetValue().strip()
         psg += '---\n\n'
         psg += self.content.GetValue()
 
@@ -163,7 +163,7 @@ class MyFrame(wx.Frame):
         try:
             file = open(fpath, 'w')
         except IOError:
-            msg = 'No such directory, please modify the jekyll.conf.'
+            msg = 'No such directory, please modify the jekyll.cfg.'
             wx.MessageBox(msg, 'Warning')
         else:
             file.write(psg)
